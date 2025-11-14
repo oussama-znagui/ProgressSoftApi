@@ -1,5 +1,7 @@
 package com.znagui.ProgressSoftApi.dto.deal;
 
+import com.znagui.ProgressSoftApi.entity.Deal;
+import com.znagui.ProgressSoftApi.validation.api.CheckExistion;
 import com.znagui.ProgressSoftApi.validation.api.ValidCurrencyISO;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -13,8 +15,9 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Getter
 public class DealRequestDTO {
+    @CheckExistion(entityC = Deal.class)
     @NotBlank(message = "Deal ID pleaase !")
-    private String DealId;
+    private String dealId;
     @ValidCurrencyISO
     @NotBlank(message = "From Currency code pleaase !")
     private String fromCurrencyCode;
@@ -23,5 +26,5 @@ public class DealRequestDTO {
     private String toCurrencyCode;
     @Min(0)
     @NotNull(message = "Deal amount please !")
-    private Double DealAmount;
+    private Double dealAmount;
 }

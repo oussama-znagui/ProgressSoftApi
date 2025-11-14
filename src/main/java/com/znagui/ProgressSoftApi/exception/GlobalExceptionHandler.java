@@ -1,5 +1,6 @@
 package com.znagui.ProgressSoftApi.exception;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -18,5 +19,16 @@ public class GlobalExceptionHandler {
             errors.put(fieldError.getField(),fieldError.getDefaultMessage());
         });
         return ResponseEntity.badRequest().body(errors);
+    }
+
+
+    @ExceptionHandler(CurrencyCodesIdenticalException.class)
+    public ResponseEntity<String> handelResourceNotFoundExeption(CurrencyCodesIdenticalException e){
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+    }
+
+    @ExceptionHandler(ResourceAlreadyExistsException.class)
+    public ResponseEntity<String> handelResourceAlreadyExistsException(ResourceAlreadyExistsException e){
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
     }
 }

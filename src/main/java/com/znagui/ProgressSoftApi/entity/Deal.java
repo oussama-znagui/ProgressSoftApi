@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 @Entity
 public class Deal {
     @Id
-    private String DealId;
+    private String dealId;
     @NotNull
     @Size(min = 3, max = 3)
     private String fromCurrencyCode;
@@ -29,6 +29,6 @@ public class Deal {
     @NotNull
     private LocalDateTime dealTimestamp;
     @NotNull
-    private Double DealAmount;
+    private Double dealAmount;
 
 }

@@ -8,9 +8,9 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Getter
 public class DealResponseDTO {
-    private String DealId;
+    private String dealId;
     private String fromCurrencyCode;
     private String toCurrencyCode;
     private LocalDateTime dealTimestamp;
-    private Double DealAmount;
+    private Double dealAmount;
 }
