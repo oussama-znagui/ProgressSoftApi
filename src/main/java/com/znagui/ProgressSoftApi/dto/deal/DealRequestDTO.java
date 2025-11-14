@@ -24,7 +24,7 @@ public class DealRequestDTO {
     @ValidCurrencyISO
     @NotBlank(message = "From Currency code pleaase !")
     private String toCurrencyCode;
-    @Min(0)
+    @Min(1)
     @NotNull(message = "Deal amount please !")
     private Double dealAmount;
 }
